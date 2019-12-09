@@ -24,5 +24,13 @@ RUN rosinstall_generator desktop_full --rosdistro melodic --deps --tar > melodic
 RUN wstool init -j8 src melodic-desktop-full.rosinstall
 #resolving dependencies
 RUN rosdep install --from-paths src --ignore-src --rosdistro melodic -y
+
+#ADD Qtcreator ros plugin
+RUN apt-get install -y wget
+WORKDIR /root
+wget https://qtcreator-ros.datasys.swri.edu/downloads/installers/xenial/qtcreator-ros-xenial-latest-offline-installer.run
+RUN chmod +x qtcreator-ros-xenial-latest-offline-installer.run
+
+WORKDIR /root/ros_catkin_ws
 RUN ./src/catkin/bin/catkin_make_isolated --install --install-space /opt/ros/melodic/debug -DCMAKE_BUILD_TYPE=Debug
 
