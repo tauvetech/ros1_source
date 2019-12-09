@@ -27,7 +27,7 @@ RUN rosdep install --from-paths src --ignore-src --rosdistro melodic -y
 #ADD Qtcreator ros plugin
 RUN apt-get install -y wget
 WORKDIR /root
-wget https://qtcreator-ros.datasys.swri.edu/downloads/installers/xenial/qtcreator-ros-xenial-latest-offline-installer.run
+RUN wget https://qtcreator-ros.datasys.swri.edu/downloads/installers/xenial/qtcreator-ros-xenial-latest-offline-installer.run
 RUN chmod +x qtcreator-ros-xenial-latest-offline-installer.run
 
 #RUN ./src/catkin/bin/catkin_make_isolated --install --install-space /opt/ros/melodic/release -DCMAKE_BUILD_TYPE=Release
