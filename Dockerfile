@@ -24,5 +24,5 @@ RUN rosinstall_generator desktop_full --rosdistro melodic --deps --tar > melodic
 RUN wstool init -j8 src melodic-desktop-full.rosinstall
 #resolving dependencies
 RUN rosdep install --from-paths src --ignore-src --rosdistro melodic -y
-RUN ./src/catkin/bin/catkin_make_isolated --install --install-space /opt/ros/melodic/release -DCMAKE_BUILD_TYPE=Release
+RUN ./src/catkin/bin/catkin_make_isolated --install --install-space /opt/ros/melodic/debug -DCMAKE_BUILD_TYPE=Debug
 
